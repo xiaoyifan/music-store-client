@@ -1,0 +1,17 @@
+<% @products.each do |product| %>
+
+  <div class="row product">
+    <div class="col-sm-3">
+      <%= image_tag product.photo_url, class: 'img-responsive' %>
+    </div>
+    <div class="col-sm-6">
+      <h2 class="title"><%= product.title %></h2>
+      <p><%= product.description %></p>
+    </div>
+    <div class="col-sm-3 text-center">
+      <p class="price"><%= number_to_currency(product.price / 100.0) %></p>
+      <%= link_to "Buy Now", new_order_path(product_id: product.id), class: 'btn btn-success' %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h1>Homework #3
+    <small>Due: Thursday, Nov 26, 5:30pm.</small>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-4 well">
+
+    <h4>Overview</h4>
+    <p>
+      There are two goals of this assignment.  First, you will add secure user accounts by using the OAuth standard to let users sign in with a social media account (Facebook, Twitter, Github, Google, etc).  Second, you will integrate credit card processing so that users can purchase an item online.
+    </p>
+
+    <p>
+      Most of the user interface has already been done for you, but you will need to polish it off and add all necessary client-side and server-side mechanics to make the application fully functional.
+    </p>
+
+    <h4>Keep In Mind...</h4>
+    <p>Your job is to enhance this Rails application by any means necessary (modifying the views, controllers, and/or models) to achieve all of the following requirements.</p>
+    <p>You are expected to use the Bootstrap framework, jQuery, jQuery UI, or something similar, to creatively build a usable website. You will also need to use some of the Google APIs to achieve all of these requirements, as well as the Divvy API.</p>
+
+    <h4>APIs</h4>
+    <p>
+      <%= link_to "Stripe", "stripe.com" %>
+    </p>
+  </div>
+
+  <div class="col-md-6 col-md-offset-1">
+    <h4>1. User Accounts</h4>
+    <ol>
+      <li>This app already has the <%= link_to "OmniAuth gem", "https://github.com/intridea/omniauth" %> and then <%= link_to "OmniAuth Twitter" %> gem installed.  Feel free to change those if you want.</li>
+      <li>Allow users to sign up and sign in using an OAuth provider of your choice. (You can also roll your own OAuth implemention if you don't want to use the OmniAuth gems).</li>
+      <li>Remember that when using OAuth, you do not store encrypted passwords in you database.  Instead, you store the provider's user identifer for that user.  The user identifier (and other user information) is given to you when the provider's website calls back to your website. If you choose to support multiple providers (not required for this assignment), you should also store the name of the provider, since user identifiers are not unique across multiple providers.</li>
+      <li>Also remember that when using OAuth, there is really no need to sign up before signing in - the first very sign-in can be a substitute for the signup process.</li>
+      <li>Implement proper authentication and authorization throughout the app.</li>
+    </ol>
+
+    <h4>2. Credit Card Processing</h4>
+    <p class="text-danger">
+      Use ONLY the "sandbox" or "test" mode of your Stripe account.
+      Use ONLY the test credit card numbers provided by Stripe.  DO NOT USE YOUR CREDIT CARD NUMBER.
+    </p>
+    <ol>
+      <li>On the <code>Orders#new</code> view, display a credit card form using Stripe.</li>
+      <li>When the user submits valid credit card information, your app should use the Stripe API to charge the card.</li>
+      <li>If the charge was successful, your app should redirect to the home page with a notice that tells the user that their order is on its way.</li>
+      <li>On the "My Orders" page (<code>Orders#index</code>), display a simple listing of the order history for the currently logged-in user.  For each order, display the product name, price, and date in a simple table view (no images required).</li>
+      <li>If an error occurs during the credit card processing steps (like if their credit card number was denied, etc.), your app should display an appropriate error message and let them try again with a different credit card.</li>
+    </ol>
+  </div>
+</div>
