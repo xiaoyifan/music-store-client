@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   resources :products
   resources :orders
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  # get '/login' => 'sessions#new'
+  # post '/login' => 'sessions#create'
+  # get '/logout' => 'sessions#destroy'
+
+  get  '/auth/:provider/callback' => 'sessions#create'
+  post '/auth/:provider/callback' => 'sessions#create'
 
 end

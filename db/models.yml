@@ -1,7 +1,7 @@
 User
-  name: string
-  email: string
-  password_digest: string
+  provider: string
+  uid: string
+  nickname: string
 
 Order
   user_id: integer
