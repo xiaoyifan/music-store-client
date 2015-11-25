@@ -2,18 +2,18 @@
 
   <div class="row product">
     <div class="col-sm-3">
-      <%= image_tag product["photo_url"], class: 'img-responsive' %>
+      <%= image_tag product.photo_url, class: 'img-responsive' %>
     </div>
-    <div class="col-sm-4">
-      <h2 class="title"><%= product["title"] %></h2>
-      <p><%= product["description"] %></p>
+    <div class="col-sm-6">
+      <h2 class="title"><%= product.title %></h2>
+      <p><%= product.description %></p>
     </div>
     <div class="col-sm-2 text-center">
       <p class="price"><%= product["on_hand"] %></p>
     </div>
     <div class="col-sm-3 text-center">
-      <p class="price"><%= number_to_currency(product["price"] / 100.0) %></p>
-      <%= link_to "Buy Now", new_order_path(product_id: product["id"]), class: 'btn btn-success' %>
+      <p class="price"><%= number_to_currency(product.price / 100.0) %></p>
+      <%= link_to "Buy Now", new_order_path(product_id: product.id), class: 'btn btn-success' %>
     </div>
   </div>
 
