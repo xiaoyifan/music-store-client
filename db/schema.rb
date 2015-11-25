@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string  "title"
     t.string  "photo_url"
@@ -31,14 +39,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "provider"
     t.string "uid"
     t.string "nickname"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
-    t.integer "amount"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
