@@ -1,14 +1,14 @@
 Store.destroy_all
 Product.destroy_all
 
-Store.create address: '200 W. Madison St, Chicago, IL'
-Store.create address: '2250 N. Clark St, Chicago, IL'
-Store.create address: '333 W. Randolph, Chicago, IL'
-Store.create address: '5555 S. Ellis Ave, Chicago, IL'
-Store.create address: '1154 S. Clark St, Chicago, IL'
-Store.create address: '1101 W. Jackson Blvd, Chicago, IL'
-Store.create address: '1940 W. 33rd St, Chicago, IL'
-Store.create address: '4466 N Broadway St, Chicago, IL'
+Store.create address: '200 W. Madison St, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
+Store.create address: '2250 N. Clark St, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
+Store.create address: '333 W. Randolph, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
+Store.create address: '5555 S. Ellis Ave, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
+Store.create address: '1154 S. Clark St, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
+Store.create address: '1101 W. Jackson Blvd, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
+Store.create address: '1940 W. 33rd St, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
+Store.create address: '4466 N Broadway St, Chicago, IL', phone: "872-588-2791", hours:"10:00 AM - 10:00PM"
 
 Product.create sku: 'B0002F58TG', photo_url: 'http://ecx.images-amazon.com/images/I/61fspjyu4yL._SL1500_.jpg', title: 'Jasmine S35 Acoustic Guitar', description: 'This Amazon Marketplace top-selling acoustic guitar is the perfect instrument for a beginner of any age, or as a second instrument for the seasoned player. From its detailed appointments to the bold acoustic tones it projects, the Jasmine S35 dreadnought guitar is an excellent all around solution for any style of music. This finely crafted instrument is backed by a limited lifetime warranty.'
 Product.create sku: 'B0009EU0S4', photo_url: 'http://ecx.images-amazon.com/images/I/41wHcOyZ%2B4L.jpg', title: 'Latin Percussion LPA280 Aspire Bar Chimes', description: 'Great value for any beginning player, these chimes sounds great.'
