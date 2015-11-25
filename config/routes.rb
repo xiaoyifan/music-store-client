@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   get  '/auth/:provider/callback' => 'sessions#create'
   post '/auth/:provider/callback' => 'sessions#create'
 
+  get '/pay' => 'payments#new'
+  post '/charge' => 'payments#create'
+
 end
