@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Store</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="page-header">
+      <h1 id="demo">My Records</h1>
+    </div>
+
+<title>Station Information</title>
+    <div class="row">
+      <div class="col-md-12">
+        <table id="orders" class="table table-striped">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Time</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+
+        </table>
+
+            <% @list.each do |order| %>
+            <% @product = Product.find_by_id(order.product_id) %>
+              <div class="row product">
+                  <div class="col-sm-2">
+                    <%= image_tag @product.photo_url, class: 'img-responsive' %>
+                  </div>
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-3">
+                    <p class="title"><%= @product.title %></p>
+                  </div>
+                  <div class="col-sm-3">
+                    <p class="price"><%= number_to_currency(order.amount / 100.0) %></p>
+                  </div>
+                  <div class="col-sm-3">
+                    <p class="title"><%= order.created_at %></p>
+                  </div>
+              </div>
+
+            <% end %>
+      </div>
+    </div>
+  </body>
+</html>

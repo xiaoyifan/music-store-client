@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   # get '/logout' => 'sessions#destroy'
 
   get  '/auth/:provider/callback' => 'sessions#create'
-  post '/auth/:provider/callback' => 'sessions#create'
+  #post '/auth/:provider/callback' => 'sessions#create'
+
+  get '/logout' => 'sessions#destroy'
 
   get '/pay' => 'payments#new'
   post '/charge' => 'payments#create'

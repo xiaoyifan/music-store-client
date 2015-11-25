@@ -12,18 +12,17 @@ class SessionsController < ApplicationController
     user = User.find_by(provider: incoming_provider, uid: incoming_uid)
     if user
       redirect_to root_url, notice: "Welcome back!"
-      # sign them in
     else
-      # User not found
-      # sign them up
       user = User.create provider: incoming_provider, uid: incoming_uid, nickname: nickname
+      redirect_to root_url, notice: "Thanks for registration!"
     end
 
     session[:user_id] = user.id
-    redirect_to root_url, notice: "Thanks for registration!"
   end
 
   def destroy
+    session.clear
+    redirect_to root_path
   end
 
 end

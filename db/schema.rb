@@ -33,4 +33,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "nickname"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.integer "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
