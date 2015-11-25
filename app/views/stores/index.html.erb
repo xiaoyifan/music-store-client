@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1>Stores</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table id="up-comings" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Hours</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @stores.each do |store| %>
+        <tr>
+            <td><%= link_to store.address, store%></td>
+            <td><%= store.phone %></td>
+            <td><%= store.hours %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

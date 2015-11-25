@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Store</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #mappa {
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-header">
+      <h1 id="demo"><%= @store.address %></h1>
+    </div>
+    <div id="mapaa" style="height: 600px;"></div>
+
+<title>Station Information</title>
+    <div class="row">
+      <div class="col-md-12">
+        <table id="bikes" class="table table-striped">
+          <thead>
+          <tr>
+            <th>Station Name</th>
+            <th>Available Docks</th>
+            <th>Address</th>
+            <th>Status</th>
+          </tr>
+          </thead>
+          <tbody>
+            <% @list.each do |station|%>
+              <tr>
+                <td><%= station["stationName"] %></td>
+                <td><%= station["availableDocks"] %></td>
+                <td><%= station["stAddress1"] + station["stAddress2"] %></td>
+                <td><%= station["statusValue"] %></td>
+              </tr>
+            <% end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+
+    var map;
+    var start;
+      $(document).ready(function(){
+        if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition);
+          }
+
+      });
+
+      function showPosition(position) {
+          start = position.coords.latitude+","+position.coords.longitude;
+          var directionsDisplay = new google.maps.DirectionsRenderer;
+          var directionsService = new google.maps.DirectionsService;
+          directionsDisplay.setMap(map);
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+          //enable directions here when the current location is detected
+      }
+
+      function initialize(position) {
+
+        map = new google.maps.Map(document.getElementById('mapaa'), {
+          center: {lat: 37.4037986, lng: -122.151479},
+          zoom: 15
+        });
+        var geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map);
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+          var address = "<%= @store.address %>"
+          geocoder.geocode({'address': address}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+          var end = "<%= @store.address %>";
+          directionsService.route({
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode.DRIVING
+          }, function(response, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      });
+    }
+
+    </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK-6iDbzlrbcnOf3h5PDHNDmhwuuJb3Qs&callback=initialize"
+        async defer></script>
+
+  </body>
+</html>
