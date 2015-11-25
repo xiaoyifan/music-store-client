@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
       :description => @product.title
     )
 
-    order = Order.create user_id:current_user.uid, product_id: @product.id, amount: @product.price, created_at:Time.new(), updated_at: Time.new()
+    order = Order.create user_id:current_user.uid, product_id: @product.id, amount: @product.price, created_at:DateTime.new(), updated_at: DateTime.new()
     redirect_to root_url, notice: "The #{@product.title} is on its way!"
   end
 end
