@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'help#show'
+  root 'products#index'
 
   get '/help' => 'help#show'
 

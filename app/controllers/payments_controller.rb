@@ -15,6 +15,6 @@ class PaymentsController < ApplicationController
       :description => "MPCS52554 Example"
     )
 
-    redirect_to root_url
+    redirect_to root_url, notice: "The product is on its way!"
   end
 end
