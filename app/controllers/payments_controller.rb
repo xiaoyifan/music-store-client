@@ -7,14 +7,15 @@ class PaymentsController < ApplicationController
   def create
     require "stripe"
     Stripe.api_key = "sk_test_dkY8errhPdowa3cPJ9Dfei2e"
+    @product = Product.find_by_id(params[:productId])
 
     Stripe::Charge.create(
-      :amount => 9900,
+      :amount => @product.price,
       :currency => "usd",
       :source => params[:stripeToken], # obtained with Stripe.js
-      :description => "MPCS52554 Example"
+      :description => @product.title
     )
 
-    redirect_to root_url, notice: "The product is on its way!"
+    redirect_to root_url, notice: "The #{@product.title} is on its way!"
   end
 end
