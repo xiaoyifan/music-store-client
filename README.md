@@ -1,16 +1,12 @@
-# Homework #3
+# Music Store client
 
-DUE: Thursday, Nov 26, 5:30pm.
+simulated client app allows users to purchase instruments online. 
 
-- Fork this repository so that you have a private repository under your own account.
-- Clone your repository to your laptop.
-- If you are on Windows, change the Gemfile accordingly.
-- `bundle install` then `rake db:setup`, etc.
-- Run the app.  Use the `Help` link in the toolbar to read the assignment.
+With product page:
+    List of products, and press the button to purchase
+Store page:
+    List of store infos, click the link to browse the details with map, location, and direction to the store.
+Purchasing:
+    Integrated with stripe to simulate purchasing with cards.
 
-Then:
-
-- Modify the app according to the requirements as much as you can.
-- Commit and push your changes up to your fork.  Do this as often as you want before the deadline.
-
-Questions?  Let us know on Piazza.
+Omni-auth integrated so users could login with twitter account.
